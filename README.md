@@ -104,10 +104,6 @@ File → Project Structure → Libraries → Add JavaFX SDK
 2. Import the provided SQL file (if available).
 3. Update connection settings in the config class:
 
-```java
-String url = "jdbc:mysql://localhost:3306/student_results_db";
-String user = "root";
-String password = "yourpassword";
 ```
 
 ### Step 5: Run the Project 🚀
