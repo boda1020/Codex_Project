@@ -80,8 +80,7 @@ This project aims to simplify result management, minimize human errors, and prov
 ### Step 1: Clone the Repository
 
 ```bash
-git clone https://github.com/YourUsername/University-Student-Results-Management-System.git
-cd University-Student-Results-Management-System
+git clone https://github.com/boda1020/Codex_Project.git
 ```
 
 ### Step 2: Add JavaFX SDK
@@ -118,13 +117,6 @@ Run → Main.java
 ```
 
 ---
-
-## 📷 Screenshots (optional)
-
-> *(Add your app screenshots here once your UI is done)*
-
----
-
 
 
 ## 🧾 License
