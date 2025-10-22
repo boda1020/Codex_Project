@@ -1,4 +1,4 @@
-{"id":"53124","variant":"standard","title":"README for University Student Results Management System"}
+
 # 🎓 University Student Results Management System
 
 This project is a **JavaFX-based desktop application** designed to manage student results for a university.  
