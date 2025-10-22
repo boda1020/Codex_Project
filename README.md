@@ -1,126 +1,134 @@
-# 🎓 University Student Results Management System (Control Management)
+{"id":"53124","variant":"standard","title":"README for University Student Results Management System"}
+# 🎓 University Student Results Management System
 
-A **desktop-based JavaFX application** designed to manage student information, academic records, and examination results efficiently within a university environment.
-This project aims to simplify result management, minimize human errors, and provide an easy-to-use, visually appealing system for both administrators and staff.
-
----
-
-## 🚀 Features
-
-✅ **User Authentication**
-
-* Secure Login & Logout functionality.
-* Role-based access for Admins and Faculty members.
-
-✅ **Student Management**
-
-* Add, edit, delete, and search student records.
-* Assign students to departments and academic levels.
-
-✅ **Course & Result Management**
-
-* Register new courses with unique codes and credits.
-* Input and update marks for each student and subject.
-* Automatic calculation of GPA / Percentage.
-* View and print student transcripts or result summaries.
-
-✅ **Reports & Export**
-
-* Generate printable reports.
-* Export data to **PDF** or **Excel** formats.
-
-✅ **Modern JavaFX Interface**
-
-* Built using **Scene Builder** for a clean, intuitive GUI.
-* Responsive design with clear layout and visual elements.
+This project is a **JavaFX-based desktop application** designed to manage student results for a university.  
+It follows the **MVC (Model–View–Controller)** architecture to ensure clean structure, scalability, and maintainability.
 
 ---
 
-## 🧠 System Objectives
+## 🧱 Project Overview
 
-* Simplify and automate result management.
-* Minimize manual data entry errors.
-* Provide instant result calculations.
-* Maintain accurate and secure student data.
-* Enable administrators to generate quick performance reports.
-
----
-
-## 🛠️ Tech Stack
-
-| Layer               | Technology                |
-| ------------------- | ------------------------- |
-| **Frontend**        | JavaFX (Scene Builder UI) |
-| **Backend**         | Java (OOP + JDBC)         |
-| **Database**        | MySQL / MariaDB           |
-| **IDE**             | IntelliJ IDEA / NetBeans  |
-| **Version Control** | Git + GitHub              |
+- **Language:** Java (JavaFX)
+- **IDE:** IntelliJ IDEA / NetBeans
+- **Database:** MySQL
+- **Architecture:** MVC (Model–View–Controller)
+- **Version Control:** GitHub
 
 ---
 
-## 🧩 Project Structure
+## 🎨 Front-End (User Interface)
 
-```
-├── src/
-│   ├── mainfx/
-│   │   ├── Main.java                # Entry point
-│   │   ├── controllers/             # JavaFX controllers
-│   │   ├── models/                  # Data models (Student, Course, Result)
-│   │   ├── database/                # DB connection and queries
-│   │   └── views/                   # FXML UI files
-├── lib/                             # JavaFX SDK libraries
-├── README.md
-└── pom.xml or build.xml             # Build configuration
-```
+> Built using **JavaFX** and **Scene Builder**, this layer manages all user interactions.
 
----
+**📁 Package:** `view`
 
-## ⚙️ Installation & Setup
-
-### Step 1: Clone the Repository
-
-```bash
-git clone https://github.com/boda1020/Codex_Project.git
-```
-
-### Step 2: Add JavaFX SDK
-
-Download JavaFX SDK (version 25 or above)
-and add it to your project libraries:
-
-```
-File → Project Structure → Libraries → Add JavaFX SDK
-```
-
-### Step 3: Set VM Options (IntelliJ / NetBeans)
-
-```
---module-path "C:\Program Files\JavaFX\javafx-sdk-25\lib" --add-modules javafx.controls,javafx.fxml
-```
-
-### Step 4: Configure Database (MySQL)
-
-1. Create a database named `student_results_db`.
-2. Import the provided SQL file (if available).
-3. Update connection settings in the config class:
-
-```
-
-### Step 5: Run the Project 🚀
-
-```bash
-Run → Main.java
-```
+| File | Description |
+|------|--------------|
+| `Login.fxml` | Login screen interface |
+| `Dashboard.fxml` | Main navigation screen after login |
+| `Students.fxml` | Manage student data visually |
+| `Courses.fxml` | Manage course details |
+| `Results.fxml` | View and edit student results |
+| `Report.fxml` | Display reports and analytics |
 
 ---
 
+## ⚙️ Back-End (Application Logic)
 
-## 🧾 License
+> Controls the behavior of the system and connects the front-end to the database.
 
-This project is developed as part of a **university graduation project**.
-All rights reserved © 2025 – *CodeX Team* 🧠
+**📁 Package:** `controller`
+
+| File | Description |
+|------|--------------|
+| `LoginController.java` | Handles user authentication |
+| `DashboardController.java` | Controls navigation between screens |
+| `StudentController.java` | Manages student-related logic |
+| `CourseController.java` | Manages course-related logic |
+| `ResultController.java` | Manages student result logic |
+| `ReportController.java` | Generates and displays reports |
 
 ---
 
+## 📦 Model (Data Layer)
 
+> Defines data structures that represent database entities.
 
+**📁 Package:** `model`
+
+| File | Description |
+|------|--------------|
+| `Student.java` | Represents a student |
+| `Course.java` | Represents a course |
+| `Result.java` | Represents a student's result |
+| `User.java` | Represents user data (username, password, role) |
+
+---
+
+## 🧩 DAO (Data Access Objects)
+
+> Responsible for CRUD (Create, Read, Update, Delete) operations with the MySQL database.
+
+**📁 Package:** `dao`
+
+| File | Description |
+|------|--------------|
+| `StudentDAO.java` | Performs operations on students table |
+| `CourseDAO.java` | Performs operations on courses table |
+| `ResultDAO.java` | Performs operations on results table |
+| `UserDAO.java` | Validates user login and credentials |
+
+---
+
+## 🔧 Utils (Helper Classes)
+
+> Contains helper methods used across the project.
+
+**📁 Package:** `utils`
+
+| File | Description |
+|------|--------------|
+| `AlertHelper.java` | Displays error, success, and info alerts |
+| `ValidationUtils.java` | Validates user input before saving |
+
+---
+
+## 🗄️ Database Layer
+
+> Manages database connectivity and configuration.
+
+**📁 Package:** `database`
+
+| File | Description |
+|------|--------------|
+| `DatabaseConnection.java` | Handles MySQL connection setup |
+| `db.properties` | Contains database configuration (host, user, password, db name) |
+
+---
+
+## ⚡ Setup Instructions
+
+1. Install **JDK 23** or newer.  
+2. Download and configure **JavaFX SDK** in your IDE.  
+3. Add **MySQL Connector/J** library to your project.  
+4. Create the required MySQL database and update the credentials in `db.properties`.  
+5. Run the project and start managing student results efficiently 🎯
+
+---
+
+## 👨‍💻 Team
+
+**Team Name:** CodeX Team  
+**Project Leader:** Abdulrahman Khamis  
+
+---
+
+## 🧠 Notes
+
+- Ensure all FXML files are properly linked to their controllers.  
+- Maintain clear separation between UI, logic, and data layers.  
+- Follow consistent naming conventions and structure.  
+
+---
+
+🚀 *A professional desktop system for efficient university result management, powered by JavaFX.*
