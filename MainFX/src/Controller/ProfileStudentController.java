@@ -67,19 +67,31 @@ public class ProfileStudentController {
         emailField.setText(currentUser.getEmail());
         phoneField.setText(currentUser.getPhone() != null ? currentUser.getPhone() : "");
 
-        // الصورة
-        if (currentUser.getProfileImagePath() != null && !currentUser.getProfileImagePath().isEmpty()) {
-            try {
-                Image image = new Image(new File(currentUser.getProfileImagePath()).toURI().toString());
-                profileCircle.setFill(new ImagePattern(image));
-                profileInitials.setVisible(false);
-            } catch (Exception e) {
-                setupDefaultCircle();
+        // التعامل مع الصورة بشكل آمن
+        boolean imageLoaded = false;
+
+        String imagePath = currentUser.getProfileImagePath();
+        if (imagePath != null && !imagePath.trim().isEmpty()) {
+            File file = new File(imagePath);
+            if (file.exists() && file.isFile()) {
+                try {
+                    Image image = new Image(file.toURI().toString(), false);
+                    profileCircle.setFill(new ImagePattern(image));
+                    profileInitials.setVisible(false);
+                    imageLoaded = true;
+                } catch (Exception e) {
+                    // أي خطأ أثناء تحميل الصورة هيرجع للصورة الافتراضية
+                    imageLoaded = false;
+                }
             }
-        } else {
+        }
+
+        if (!imageLoaded) {
+            // لو الصورة مش موجودة أو حصل خطأ، نعرض اللون الافتراضي مع الأوليات
             setupDefaultCircle();
         }
 
+        // تحديث الأوليات
         updateInitials();
     }
 
